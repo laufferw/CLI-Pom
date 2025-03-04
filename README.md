@@ -15,6 +15,7 @@ The CLI Pomodoro Timer is a Python-based application that implements the Pomodor
 - **Command-line Notifications**: Receive notifications when sessions start and end
 - **Progress Bar**: Visual representation of time remaining in current session
 - **Customizable Settings**: Modify session durations and cycle counts via command-line arguments
+- **Sound Effects**: Audio notifications when sessions start and end
 - **Minimal Interface**: Distraction-free command-line interface
 
 ## Installation
@@ -56,6 +57,8 @@ The timer supports the following command-line arguments:
 | `--short-break` | Duration of short breaks in minutes | 5 |
 | `--long-break` | Duration of long breaks in minutes | 15 |
 | `--pomodoros` | Number of work sessions before a long break | 4 |
+| `--mute` | Disable sound effects | False |
+| `--debug` | Enable debug output | False |
 
 ## Example Usage
 
@@ -79,6 +82,11 @@ The timer supports the following command-line arguments:
 ./pomodoro.py --work 45 --short-break 10 --long-break 30 --pomodoros 2
 ```
 
+### Run Without Sound Effects
+```bash
+./pomodoro.py --mute
+```
+
 ## Customizing the Timer
 
 You can customize every aspect of the timer using command-line arguments:
@@ -87,6 +95,35 @@ You can customize every aspect of the timer using command-line arguments:
 2. **Short Break Duration**: Use `--short-break` followed by the number of minutes
 3. **Long Break Duration**: Use `--long-break` followed by the number of minutes
 4. **Work Sessions Count**: Use `--pomodoros` followed by the number of work sessions before a long break
+
+## Sound Effects
+
+The timer includes sound effects to help you identify session changes without having to look at the screen:
+
+- Different sounds for work sessions, short breaks, and long breaks
+- Audio notifications when a session starts and ends
+- Customizable by replacing the sound files in the `sounds` directory
+
+### Customizing Sounds
+
+You can customize the sound effects by replacing the WAV files in the `sounds` directory:
+
+- `work_start.wav`: Played when a work session begins
+- `work_end.wav`: Played when a work session ends
+- `short_break_start.wav`: Played when a short break begins
+- `short_break_end.wav`: Played when a short break ends
+- `long_break_start.wav`: Played when a long break begins
+- `long_break_end.wav`: Played when a long break ends
+
+Sound files must be in WAV format. If a sound file is missing, the timer will fall back to using a terminal bell sound.
+
+### Disabling Sounds
+
+To run the timer without sound effects, use the `--mute` option:
+
+```bash
+./pomodoro.py --mute
+```
 
 ## Stopping the Timer
 
